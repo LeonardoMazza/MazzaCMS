@@ -13,6 +13,8 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\FileUpload;
+
 
 
 class PostResource extends Resource
@@ -38,6 +40,11 @@ class PostResource extends Resource
                 Select::make('author')
                     ->relationship('author', 'name')
                     ->label('Author'),
+                FileUpload::make('featured_image')
+                    ->image()
+                    ->imageEditor()
+                    ->maxSize(1024)
+
             ]);
     }
 
