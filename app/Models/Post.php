@@ -18,4 +18,9 @@ class Post extends Model
     {
         return $this->belongsToMany(Category::class);
     }
+
+    public function author()
+    {
+        return $this->belongsToMany(Author::class, 'author_post')->withTimestamps();
+    }
 }
